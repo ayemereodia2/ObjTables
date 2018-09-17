@@ -12,7 +12,7 @@ using namespace cv;
 
 @interface ImageViewController : UIViewController<CvVideoCameraDelegate>
 {
-    IBOutlet UIImageView* imageView;
+    //IBOutlet UIImageView* imageView;
     CvPhotoCamera* photoCamera;
     CvVideoCamera* videoCamera;
     CGPoint location;

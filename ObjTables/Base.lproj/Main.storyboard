@@ -112,7 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="SkU-e5-wFR"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="wA2-Tm-2Vb" id="0e5-t5-DQG"/>
+                        <outlet property="imageView" destination="wA2-Tm-2Vb" id="b8w-54-VFa"/>
                         <outlet property="showBerger" destination="LDp-Nm-Bje" id="hJm-vF-5mY"/>
                     </connections>
                 </viewController>

@@ -27,7 +27,7 @@ using namespace cv;
 - (IBAction)showBerger:(id)sender;
 
 
-@property (nonatomic, retain) IBOutlet UIImageView* imageView;
+//@property (nonatomic, retain) IBOutlet UIImageView* imageView;
 
 //@property (nonatomic, strong) IBOutlet UITableView *sampletable;
 

@@ -582,16 +582,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B6YZKD7YS3;
+				DEVELOPMENT_TEAM = 9C9HBBN847;
 				FRAMEWORK_SEARCH_PATHS = /Users/mac/Downloads;
 				HEADER_SEARCH_PATHS = /Users/mac/Downloads;
 				INFOPLIST_FILE = ObjTables/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = /Users/mac/Downloads;
-				PRODUCT_BUNDLE_IDENTIFIER = practise.ObjTables;
+				PRODUCT_BUNDLE_IDENTIFIER = codeofrobin.helloOpenCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -602,16 +603,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B6YZKD7YS3;
+				DEVELOPMENT_TEAM = 9C9HBBN847;
 				FRAMEWORK_SEARCH_PATHS = /Users/mac/Downloads;
 				HEADER_SEARCH_PATHS = /Users/mac/Downloads;
 				INFOPLIST_FILE = ObjTables/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = /Users/mac/Downloads;
-				PRODUCT_BUNDLE_IDENTIFIER = practise.ObjTables;
+				PRODUCT_BUNDLE_IDENTIFIER = codeofrobin.helloOpenCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

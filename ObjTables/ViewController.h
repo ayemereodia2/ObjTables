@@ -10,7 +10,7 @@
 #import <opencv2/videoio/cap_ios.h>
 using namespace cv;
 
-@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,CvVideoCameraDelegate,UIImagePickerControllerDelegate,
+@interface ViewController : UIViewController<UITableViewDelegate , UITableViewDataSource,CvVideoCameraDelegate,UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 UIPopoverControllerDelegate>
 {
