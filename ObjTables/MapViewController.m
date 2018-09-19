@@ -54,23 +54,45 @@
     
     // 1
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 6.432927;//39.281516;
-    zoomLocation.longitude= 3.425844;//-76.580806;
-    
-    
+    zoomLocation.latitude = 5.128333;//39.281516;
+    zoomLocation.longitude= 7.360562;//-76.580806;
     // 2
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+//    viewRegion.center.latitude = 8.6753;
+//    viewRegion.center.longitude = 9.0820;
+
     viewRegion.span.latitudeDelta = 0.01f;
-    viewRegion.span.longitudeDelta = 0.01f;
+   viewRegion.span.longitudeDelta = 0.01f;
     
     // 3
     [_mapView setRegion:viewRegion animated:YES];
     
         MapPin *ann = [[MapPin alloc]init];
-        ann.title = @"Alat Office";
-        ann.subtitle = @"Technology Head Quarter for Wema Bank Plc, #54 Marina Street, Lagos Island";
+        ann.title = @"Abia State";
+        ann.subtitle = @"128 Aba Owerri Road, beside Kemjika Filling Station, Abia State";
         ann.coordinate = zoomLocation;
         [_mapView addAnnotation:ann];
+    //
+
+    CLLocationCoordinate2D zoomLocation1;
+    zoomLocation1.latitude = 7.167938;//39.281516;
+    zoomLocation1.longitude= 3.372688;//-76.580806;
+    // 2
+    MKCoordinateRegion viewRegion1 = MKCoordinateRegionMakeWithDistance(zoomLocation1, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+//    viewRegion1.center.latitude = 8.6753;
+//    viewRegion1.center.longitude = 9.0820;
+    
+    viewRegion1.span.latitudeDelta = 0.01f;
+    viewRegion1.span.longitudeDelta = 0.01f;
+    
+    // 3
+    [_mapView setRegion:viewRegion animated:YES];
+    
+    MapPin *ann1 = [[MapPin alloc]init];
+    ann1.title = @"Ogun State";
+    ann1.subtitle = @"Laffro house, beside Hasan Furniture, Moshood Abiola way, Abeokuta";
+    ann1.coordinate = zoomLocation;
+    [_mapView addAnnotation:ann1];
     
         //NSArray *ns = [NSArray arrayWithObjects:ann, nil];
     
