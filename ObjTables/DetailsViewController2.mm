@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES ];
     
-    [self.sampletable registerNib:[UINib nibWithNibName:@"DetailsViewCell1" bundle:nil] forCellReuseIdentifier:@"DetailsViewCell1"];
+    [self.sampletable registerNib:[UINib nibWithNibName:@"DetailsViewCell2" bundle:nil] forCellReuseIdentifier:@"DetailsViewCell2"];
     
     self.sampletable.delegate = self;
     self.sampletable.dataSource = self;
@@ -55,10 +55,10 @@ NSArray *paintarrays = [NSArray arrayWithObjects:paint11,paint22,paint33,paint44
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
     DetailsViewCell2 * cell = (DetailsViewCell2 *)[tableView dequeueReusableCellWithIdentifier:@"DetailsViewCell2"];
-    Decorative *paintz = (Decorative*)paintarrays[indexPath.row];
-    cell.title.text = paintz.nameOfPaint;
-    cell.subdescription.text = paintz.DescriptionOfPaint;
-    cell.image.image = [UIImage imageNamed:paintz.ImagePath];
+    Decorative *paintj = (Decorative*)paintarrays[indexPath.row];
+    cell.title.text = paintj.nameOfPaint;
+    cell.subdescription.text = paintj.DescriptionOfPaint;
+    cell.image.image = [UIImage imageNamed:paintj.ImagePath];
     //            [cell.buttonOne addTarget:self action:@selector(gotoDecoProductsListBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     //
     //            [cell.backButton addTarget:self action:@selector(gotoBackBtnClicked:) forControlEvents:UIControlEventTouchUpInside];

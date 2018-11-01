@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <opencv2/videoio/cap_ios.h>
+#import "ColorsRGB.h"
+#import <Photos/Photos.h>
+
 using namespace cv;
 
 @interface VideoViewController : UIViewController<CvVideoCameraDelegate>
@@ -16,15 +19,24 @@ using namespace cv;
     CvPhotoCamera* photoCamera;
     CvVideoCamera* videoCamera;
     CGPoint location;
+    cv::Mat marker;
+    cv::Point pointos;
+    cv::Scalar SelectedColor;
 }
 @property (nonatomic, weak) IBOutlet UIButton* loadButton;
 @property (nonatomic, retain) CvPhotoCamera* photoCamera;
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 @property (nonatomic, retain)  UIPopoverController* popoverController;
-@property (nonatomic, weak) IBOutlet UIButton* showBerger;
+@property (nonatomic, retain) IBOutlet UIButton* showBerger;
+@property (nonatomic, weak) IBOutlet UIButton* saveImage;
+@property (nonatomic, weak) IBOutlet UIButton* goBackOnce;
 
-- (IBAction)actionStart:(id)sender;
+@property (nonatomic, retain) ColorsRGB* selectedColors;
++(UIImage *)processViews:(UIImage *)srcimage startPoint:(CGPoint )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff;
+
+- (IBAction)goBack:(UIButton*)sender;
 - (IBAction)showBerger:(id)sender;
+-(IBAction)saveImage:(UIButton*)sender;
 
 
 //@property (nonatomic, retain) IBOutlet UIImageView* imageView;

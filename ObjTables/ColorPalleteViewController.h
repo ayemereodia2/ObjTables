@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ColorPalleteViewController : UIViewController
-
+@protocol sendBackData<NSObject>
+-(void)sendColorToVideo:(UIColor*)color;
+@end
+@interface ColorPalleteViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@property (nonatomic, strong) IBOutlet UICollectionView *samplecollection;
+-(UIColor *)colorFromHexString:(NSString*)hexString;
+-(IBAction)gotoBackBtnClicked:(id)sender;
+@property (nonatomic, weak) IBOutlet UIButton *backButton;
+@property(nonatomic,assign)id delegate;
 @end

@@ -144,10 +144,6 @@ NSArray *array = [NSArray arrayWithObjects:@"SimpleTableViewCell",@"SimpleTableV
                 cell = [nib objectAtIndex:0];
             }
             
-//            cell.productTitle.text = @"Berger Vanisher";
-//            cell.companyName.text = @"Berger Paint Nigeria Limited";
-//            cell.imageView.image = [UIImage imageNamed:@"images/realngn"];
-            
             return cell;
         }
         case 1:{
@@ -159,10 +155,6 @@ NSArray *array = [NSArray arrayWithObjects:@"SimpleTableViewCell",@"SimpleTableV
                 NSArray *nib =[[NSBundle mainBundle] loadNibNamed:@"SimpleTableViewCell1" owner:self options:nil ];
                 cell = [nib objectAtIndex:0];
             }
-            
-//            cell.productTitle.text = @"Berger Vanisher";
-//            cell.companyName.text = @"Berger Paint Nigeria Limited";
-//            cell.imageView.image = [UIImage imageNamed:@"images/realngn"];
             
             return cell;
       

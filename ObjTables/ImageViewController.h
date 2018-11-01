@@ -10,7 +10,7 @@
 #import <opencv2/videoio/cap_ios.h>
 using namespace cv;
 
-@interface ImageViewController : UIViewController<CvVideoCameraDelegate>
+@interface ImageViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,CvVideoCameraDelegate>
 {
     //IBOutlet UIImageView* imageView;
     CvPhotoCamera* photoCamera;
@@ -21,10 +21,23 @@ using namespace cv;
 @property (nonatomic, retain) CvPhotoCamera* photoCamera;
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 @property (nonatomic, retain)  UIPopoverController* popoverController;
+@property (nonatomic, weak) IBOutlet UIButton* clearPhoto;
+@property (nonatomic, retain) IBOutlet UIButton* showBerger;
+@property (nonatomic, retain) IBOutlet UIButton* BackButton;
+@property (nonatomic, retain) IBOutlet UIButton* SaveStillButton;
+@property (nonatomic, retain) IBOutlet UIButton* FromCameraButton;
+
 
 - (IBAction)actionStart:(id)sender;
 
-@property (nonatomic, retain) IBOutlet UIImageView* imageView;
+@property (nonatomic, retain) IBOutlet UIImageView* imageView2;
+
+-(IBAction)goBack:(UIButton*)sender;
+-(IBAction)selectPhoto:(UIButton *)sender;
+-(IBAction)clearPhotos:(UIButton *)sender;
+-(IBAction)saveImage2:(UIButton*)sender;
+-(IBAction)ChooseImageFromCamera:(UIButton*)sender;
+
 
 //@property (nonatomic, strong) IBOutlet UITableView *sampletable;
 
