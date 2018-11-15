@@ -18,10 +18,14 @@ using namespace cv;
     IBOutlet UIImageView* imageView;
     CvPhotoCamera* photoCamera;
     CvVideoCamera* videoCamera;
+    NSURL* videoUrl;
     CGPoint location;
     cv::Mat marker;
     cv::Point pointos;
     cv::Scalar SelectedColor;
+    UIImageView* parentView2;
+    //CGPoint pointed2;
+
 }
 @property (nonatomic, weak) IBOutlet UIButton* loadButton;
 @property (nonatomic, retain) CvPhotoCamera* photoCamera;
@@ -30,9 +34,11 @@ using namespace cv;
 @property (nonatomic, retain) IBOutlet UIButton* showBerger;
 @property (nonatomic, weak) IBOutlet UIButton* saveImage;
 @property (nonatomic, weak) IBOutlet UIButton* goBackOnce;
+@property (nonatomic, retain) IBOutlet UIImageView* parentView;
+
 
 @property (nonatomic, retain) ColorsRGB* selectedColors;
-+(UIImage *)processViews:(UIImage *)srcimage startPoint:(CGPoint )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff;
++(UIImage *)processViews:(UIImage *)srcimage startPoint:(NSMutableArray*  )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff tap:(int )Taps;
 
 - (IBAction)goBack:(UIButton*)sender;
 - (IBAction)showBerger:(id)sender;

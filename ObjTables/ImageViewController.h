@@ -16,6 +16,8 @@ using namespace cv;
     CvPhotoCamera* photoCamera;
     CvVideoCamera* videoCamera;
     CGPoint location;
+   // NSMutableArray* mPointsArray;
+
 }
 @property (nonatomic, weak) IBOutlet UIButton* loadButton;
 @property (nonatomic, retain) CvPhotoCamera* photoCamera;
@@ -26,6 +28,7 @@ using namespace cv;
 @property (nonatomic, retain) IBOutlet UIButton* BackButton;
 @property (nonatomic, retain) IBOutlet UIButton* SaveStillButton;
 @property (nonatomic, retain) IBOutlet UIButton* FromCameraButton;
+@property (nonatomic, retain) NSMutableArray* mPointsArray;
 
 
 - (IBAction)actionStart:(id)sender;

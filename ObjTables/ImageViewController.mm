@@ -23,6 +23,7 @@
 @synthesize photoCamera = _photoCamera;
 @synthesize videoCamera = _videoCamera;
 @synthesize imageView2 = _imageView2;
+@synthesize mPointsArray = _mPointsArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -184,11 +185,32 @@ ColorsRGB *colorz;
         CGPoint tpoint = [[[event allTouches] anyObject] locationInView:self.view];
         
         location = tpoint;
+        //CGPoint tpoint2;// = tpoint;
+        _mPointsArray = [[NSMutableArray alloc]init];
         
-        
-        self.imageView2.image = [VideoViewController processViews:self.imageView2.image startPoint:tpoint newColor:colorz lodiff:10];
+        CGPoint pointToConvert = CGPointMake(location.x, location.y);
+        NSValue *valueToStore = [NSValue valueWithCGPoint:pointToConvert];
+        int tapCount = 0;
+        if([_mPointsArray containsObject:valueToStore])
+        {
+            //
+        }
+        else{
+            _mPointsArray =[NSMutableArray arrayWithObject:valueToStore];
 
-        NSLog(@"%f%f",location.x,location.y);
+            // [mPointsArray addObject:@(location)];
+            
+            if((tpoint.x != 0) && (tpoint.y != 0))
+            {
+                tapCount++;
+                self.imageView2.image = [VideoViewController processViews:self.imageView2.image startPoint:_mPointsArray newColor:colorz lodiff:10 tap:tapCount];
+                //add tpoint to an array
+                
+            }
+            
+            NSLog(@"%f%f",location.x,location.y);
+        }
+        
     }
     
 

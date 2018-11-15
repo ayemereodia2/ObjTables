@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,22 +21,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncf-O0-6Ds">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BERGER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkE-ya-Cb9">
-                                        <rect key="frame" x="35" y="195" width="305" height="62"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="62" id="B3K-GY-M3s"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="WZd-FM-LXU">
+                                        <rect key="frame" x="8" y="274" width="359" height="119"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.038005488910171858" green="0.43503674276408555" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.020677613340000001" green="0.30795008559999998" blue="0.71385231599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="AkE-ya-Cb9" secondAttribute="trailing" constant="35" id="6Mt-0w-LOn"/>
-                                    <constraint firstAttribute="bottom" secondItem="AkE-ya-Cb9" secondAttribute="bottom" constant="410" id="L83-wT-cxs"/>
-                                    <constraint firstItem="AkE-ya-Cb9" firstAttribute="leading" secondItem="ncf-O0-6Ds" secondAttribute="leading" constant="35" id="TFx-rV-kiA"/>
-                                    <constraint firstItem="AkE-ya-Cb9" firstAttribute="top" secondItem="ncf-O0-6Ds" secondAttribute="top" constant="195" id="aTe-xX-jik"/>
+                                    <constraint firstAttribute="bottom" secondItem="WZd-FM-LXU" secondAttribute="bottom" constant="274" id="3MC-6h-OWu"/>
+                                    <constraint firstAttribute="trailing" secondItem="WZd-FM-LXU" secondAttribute="trailing" constant="8" id="IAb-n2-Hb2"/>
+                                    <constraint firstItem="WZd-FM-LXU" firstAttribute="leading" secondItem="ncf-O0-6Ds" secondAttribute="leading" constant="8" id="Jae-IO-9Dt"/>
+                                    <constraint firstItem="WZd-FM-LXU" firstAttribute="top" secondItem="ncf-O0-6Ds" secondAttribute="top" constant="274" id="W2C-IF-aVA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -55,4 +49,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="215" height="118"/>
+    </resources>
 </document>

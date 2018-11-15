@@ -21,6 +21,9 @@
 @implementation VideoViewController
 @synthesize videoCamera;// = _videoCamera;
 @synthesize selectedColors = _selectedColors;
+@synthesize parentView = _parentView;
+
+
 - (void)SetupCameraWrapper {
     self.videoCamera = [[CvVideoCamera alloc] initWithParentView:imageView];
     self.videoCamera.delegate = self;
@@ -43,20 +46,38 @@
     self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
     self.videoCamera.defaultFPS = 30;
     self.videoCamera.grayscaleMode = NO;
-//    cv::VideoCapture::set(CV_CAP_PROP_APERTURE, 1);
-//    cv::VideoCapture::set(CV_CAP_PROP_EXPOSURE, 1);
 
+   //videoUrl = self.videoCamera.videoFileURL; //= @"";
+    
     [self.videoCamera start];
     [self ShowInstructions];
     
-    
     // Do any additional setup after loading the view.
 }
-//-(void)viewWillAppear:(BOOL)animated{
-//    [self SetupCameraWrapper];
-//    [self.videoCamera start];
-//    [self ShowInstructions];
-//}
+
+-(void)createImage:(int)withFPS {
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
+    
+    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    generator.requestedTimeToleranceAfter =  kCMTimeZero;
+    generator.requestedTimeToleranceBefore =  kCMTimeZero;
+    //int time = CMTimeGetSeconds(asset.duration);
+    CMTime duration = CMTime();
+    duration.timescale = 30;
+    
+    for (Float64 i = 0; i < CMTimeGetSeconds(duration) *  withFPS ; i++){
+        @autoreleasepool {
+            CMTime time = CMTimeMake(i, withFPS);
+            NSError *err;
+            CMTime actualTime;
+            CGImageRef image = [generator copyCGImageAtTime:time actualTime:&actualTime error:&err];
+            UIImage *generatedImage = [[UIImage alloc] initWithCGImage:image];
+            [self savePhotoToAlbum: generatedImage]; // Saves the image on document directory and not memory
+            CGImageRelease(image);
+        }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -103,21 +124,19 @@
 - (IBAction)showBerger:(id)sender{
     //UIButton *senderBtn = (UIButton *) sender;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
     ColorPalleteViewController *myNewVC = (ColorPalleteViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ColorPalleteViewController"];
     myNewVC.delegate = self;
     [self.navigationController pushViewController:myNewVC animated:YES];
 
 }
--(IBAction)saveImage:(UIButton*)sender{
-    
+- (void)savePhotoToAlbum:(UIImage*)image {
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:self->imageView.image];
+        PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:self->imageView.image = image];
         changeRequest.creationDate          = [NSDate date];
     } completionHandler:^(BOOL success, NSError *error) {
         if (success) {
             AudioServicesPlaySystemSound(1108);
-
+            
             [self ShowInstructions2];
             
             
@@ -128,6 +147,19 @@
         }
     }];
 }
+
+-(IBAction)saveImage:(UIButton*)sender{
+    
+    [self createImage:30];
+
+    //[self savePhotoToAlbum:imageView.image];
+    
+}
+
+
+
+
+
 ColorsRGB *colors;
 
 -(void) sendColorToVideo:(UIColor *)color{
@@ -146,6 +178,10 @@ ColorsRGB *colors;
 }
 -(void)processImage:(cv::Mat&)image;
 {
+    videoUrl = self.videoCamera.videoFileURL; //= @"";
+
+  //  videoUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"VfE_html5" ofType:@"mp4"]];
+
     int lowThreshold = 10.0;
     int ratio = 3;
     int kernel_size = 3;
@@ -260,6 +296,7 @@ ColorsRGB *colors;
             
             cv::addWeighted(image, alpha, image, beta, 0.0, image);
         
+        
 
     }
 
@@ -267,8 +304,9 @@ ColorsRGB *colors;
 
 
 
-+(UIImage *)processViews:(UIImage *)srcimage startPoint:(CGPoint )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff
++(UIImage *)processViews:(UIImage *)srcimage startPoint:(NSMutableArray* )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff tap:(int )Taps
 {
+    
     cv::Mat image;
     UIImageToMat(srcimage, image);
     
@@ -289,9 +327,9 @@ ColorsRGB *colors;
     image0.create(image.size(), image.type());
     
     
+    
     //cv::Point seed(285,200);
     
-    cv::Point seed(point.x+100.0,point.y+100.0);
     
     // Apply Gaussian filter to remove small edges
     cv::GaussianBlur(image, image,
@@ -359,31 +397,63 @@ ColorsRGB *colors;
     
     beta = ( 1.0 - alpha );
     
-    if (point.x > 0 && point.y > 0)
-    {
-        
+    
         
         double red  = 255.0 * newcolor.red;
         double green  = 255.0 * newcolor.green;
         double blue  = 255.0 * newcolor.blue;
-        // double alpha  = 255.0 * colors.alpha;
-        
-        
-        int xc = cv::floodFill(image,mask,seed, cv::Scalar(blue,green,red) ,0, cv::Scalar(1,1,1), cv::Scalar(1,1,1),4);
-        //   image = grad;
-//        cv::blur(image, image,cv::Size(3,3));
-//        cv::dilate(image, image, kernel);
-        
-        // cv::erode(<#cv::InputArray src#>, <#cv::OutputArray dst#>, <#cv::InputArray kernel#>);
-        
-       // cv::addWeighted(image, alpha, image, beta, 0.0, image);
-        cv::cvtColor(image, image, cv::COLOR_BGR2RGB);//in-use
+    CGPoint pointed;
+    CGPoint pointed2;
+    int x = 0;
+
+    for (NSValue *valuetoGetBack in point) {
+        pointed = [valuetoGetBack CGPointValue];
+        //do something with the CGPoint
 
     }
-    return MatToUIImage(image);
-
     
-}
+        for (int i=0; i<[point count]; i++) {
+
+            cv::Point seed(pointed.x+100.0,pointed.y+100.0);
+
+            if(Taps == 3)
+              {
+                  
+                  return srcimage ;
+              }
+            else{
+                cv::floodFill(image,mask,seed, cv::Scalar(blue,green,red) ,0, cv::Scalar(1,1,1), cv::Scalar(1,1,1),4);
+                //   image = grad;
+                //        cv::blur(image, image,cv::Size(3,3));
+                //        cv::dilate(image, image, kernel);
+                
+                // cv::erode(<#cv::InputArray src#>, <#cv::OutputArray dst#>, <#cv::InputArray kernel#>);
+                
+                // cv::addWeighted(image, alpha, image, beta, 0.0, image);
+                cv::cvtColor(image, image, cv::COLOR_BGR2RGB);//in-use
+                
+                
+                pointed2.x = pointed.x;
+                pointed2.y = pointed.y;
+                x++;
+                
+                srcimage = MatToUIImage(image);
+            }
+              
+            
+
+         
+          //  NSLog(@"%d: %@", i, point[i]);
+        
+        }
+   // return MatToUIImage(image);
+
+    return srcimage;
+
+    }
+
+
+
 
 - (IBAction)goBack:(UIButton*)sender{
     
@@ -404,6 +474,8 @@ ColorsRGB *colors;
     else{
     UITouch *touch = [[event allTouches] anyObject];
     location= [touch locationInView:touch.view];
+        
+        
     NSLog(@"%f%f",location.x,location.y);
     }
 }
@@ -416,5 +488,49 @@ ColorsRGB *colors;
     // Pass the selected object to the new view controller.
 }
 */
+
+//- (void)createVideoPreviewLayer;
+//{
+//
+//    self.parentView.layer.sublayers = nil;
+//    if (self.videoCamera.captureVideoPreviewLayer == nil) {
+//        self.videoCamera.captureVideoPreviewLayer  = [[AVCaptureVideoPreviewLayer alloc]initWithSession:self.videoCamera.captureSession];
+//
+//
+//        [[AVCaptureVideoPreviewLayer alloc]
+//                                    initWithSession:self.videoCamera.captureSession];
+//    }
+//
+//    if (self.parentView != nil) {
+//        self.videoCamera.captureVideoPreviewLayer.frame = self.parentView.bounds;
+//        self.videoCamera.captureVideoPreviewLayer.videoGravity =
+//        AVLayerVideoGravityResizeAspectFill;
+//        [self.parentView.layer addSublayer:self.videoCamera.captureVideoPreviewLayer];
+//    }
+//    NSLog(@"[Camera] created AVCaptureVideoPreviewLayer");
+//}
+
+
+//- (void)createStillImageOutput;
+//{
+//    // setup still image output with jpeg codec
+//    self.stillImageOutput = [[AVCapturePhotoOutput alloc] init];
+//    NSDictionary *outputSettings = [NSDictionary dictionaryWithObjectsAndKeys:AVVideoCodecTypeJPEG, AVVideoCodecKey, nil];
+//    [self.stillImageOutput setOutputSettings:outputSettings];
+//    [self.captureSession addOutput:self.stillImageOutput];
+//
+//    for (AVCaptureConnection *connection in self.stillImageOutput.connections) {
+//        for (AVCaptureInputPort *port in [connection inputPorts]) {
+//            if ([port.mediaType isEqual:AVMediaTypeVideo]) {
+//                self.videoCaptureConnection = connection;
+//                break;
+//            }
+//        }
+//        if (self.videoCaptureConnection) {
+//            break;
+//        }
+//    }
+//    NSLog(@"[Camera] still image output created");
+//}
 
 @end
