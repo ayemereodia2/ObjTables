@@ -35,10 +35,12 @@ using namespace cv;
 @property (nonatomic, weak) IBOutlet UIButton* saveImage;
 @property (nonatomic, weak) IBOutlet UIButton* goBackOnce;
 @property (nonatomic, retain) IBOutlet UIImageView* parentView;
-
-
+@property (nonatomic, assign) int saveit;
+@property NSMutableArray *ArrayContainer;
+@property NSMutableArray *ArrayContainer2;
+@property IBOutlet UIView * curvedView;
 @property (nonatomic, retain) ColorsRGB* selectedColors;
-+(UIImage *)processViews:(UIImage *)srcimage startPoint:(NSMutableArray*  )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff tap:(int )Taps;
+//+(UIImage *)processViews:(UIImage *)srcimage startPoint:(NSMutableArray*  )point newColor:(ColorsRGB *)newcolor lodiff:(int )diff tap:(int )Taps;
 
 - (IBAction)goBack:(UIButton*)sender;
 - (IBAction)showBerger:(id)sender;

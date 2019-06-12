@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="247.5"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.174492649" blue="0.14596181699999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="HUs-wy-EUo" firstAttribute="top" secondItem="Wgm-98-jiY" secondAttribute="top" id="4px-N3-hoZ"/>
                                     <constraint firstAttribute="bottom" secondItem="HUs-wy-EUo" secondAttribute="bottom" id="AhK-Q7-KCf"/>
@@ -37,44 +37,19 @@
                                     <constraint firstItem="HUs-wy-EUo" firstAttribute="leading" secondItem="Wgm-98-jiY" secondAttribute="leading" id="vmM-ec-UKk"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye4.png" translatesAutoresizingMaskIntoConstraints="NO" id="1lE-mS-zoD">
-                                <rect key="frame" x="118" y="50" width="139" height="64"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live.png" translatesAutoresizingMaskIntoConstraints="NO" id="1lE-mS-zoD">
+                                <rect key="frame" x="118" y="50" width="139" height="205"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Visualizer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPR-pC-uil">
-                                <rect key="frame" x="31" y="122" width="313" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="DFj-ub-MsM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRY COLORS LIVE ON CUSTOM WALL IT WORKS BEST FOR INTERIOR WALLS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-ux-SyW">
-                                <rect key="frame" x="78" y="157" width="219" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xEv-Mm-rw1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="SPR-pC-uil" secondAttribute="trailing" constant="31" id="8ST-es-sr3"/>
-                            <constraint firstItem="SPR-pC-uil" firstAttribute="leading" secondItem="VG3-VT-sH5" secondAttribute="leading" constant="31" id="9CP-1a-GqB"/>
-                            <constraint firstItem="VvT-ux-SyW" firstAttribute="leading" secondItem="VG3-VT-sH5" secondAttribute="leading" constant="78" id="DVy-vA-6LB"/>
-                            <constraint firstItem="VvT-ux-SyW" firstAttribute="top" secondItem="SPR-pC-uil" secondAttribute="bottom" constant="14" id="Ena-wW-Qvh"/>
                             <constraint firstItem="Wgm-98-jiY" firstAttribute="top" secondItem="VG3-VT-sH5" secondAttribute="top" constant="16" id="FqS-uX-mp2"/>
                             <constraint firstAttribute="trailing" secondItem="1lE-mS-zoD" secondAttribute="trailing" constant="118" id="P2u-lX-pqr"/>
                             <constraint firstAttribute="bottom" secondItem="Wgm-98-jiY" secondAttribute="bottom" constant="16" id="PmT-qf-NCT"/>
                             <constraint firstItem="Wgm-98-jiY" firstAttribute="leading" secondItem="VG3-VT-sH5" secondAttribute="leading" constant="8" id="Sde-Kd-RKT"/>
                             <constraint firstItem="1lE-mS-zoD" firstAttribute="leading" secondItem="VG3-VT-sH5" secondAttribute="leading" constant="118" id="XZ7-JH-ZxC"/>
                             <constraint firstItem="1lE-mS-zoD" firstAttribute="top" secondItem="VG3-VT-sH5" secondAttribute="top" constant="50" id="b6l-2b-cES"/>
-                            <constraint firstAttribute="bottom" secondItem="VvT-ux-SyW" secondAttribute="bottom" constant="72.5" id="geE-L2-xDc"/>
                             <constraint firstAttribute="trailing" secondItem="Wgm-98-jiY" secondAttribute="trailing" constant="8" id="mes-yg-La5"/>
-                            <constraint firstAttribute="trailing" secondItem="VvT-ux-SyW" secondAttribute="trailing" constant="78" id="tLM-fx-phC"/>
-                            <constraint firstItem="SPR-pC-uil" firstAttribute="top" secondItem="1lE-mS-zoD" secondAttribute="bottom" constant="8" id="w5b-HI-JN3"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -93,6 +68,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="eye4.png" width="64" height="64"/>
+        <image name="live.png" width="179" height="205"/>
     </resources>
 </document>

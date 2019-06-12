@@ -65,6 +65,8 @@ NSArray *paintarrays = [NSArray arrayWithObjects:paint11,paint22,paint33,paint55
     cell.title.text = paintj.nameOfPaint;
     cell.subdescription.text = paintj.DescriptionOfPaint;
     cell.image.image = [UIImage imageNamed:paintj.ImagePath];
+    
+
 //                [cell.transButton addTarget:self action:@selector(gotoDecoProductsListBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 //
     //            [cell.backButton addTarget:self action:@selector(gotoBackBtnClicked:) forControlEvents:UIControlEventTouchUpInside];

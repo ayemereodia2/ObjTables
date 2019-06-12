@@ -13,7 +13,7 @@ static CGFloat radius = 6;
 
 static int shadowOffsetWidth = 3;
 static int shadowOffsetHeight = 3;
-static float shadowOpacity = 0.0;
+static float shadowOpacity = 0.5;
 
 @implementation cardview
 

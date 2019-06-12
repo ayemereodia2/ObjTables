@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <opencv2/videoio/cap_ios.h>
+#import "Models/Pointed.h"
+
 using namespace cv;
 
 @interface ImageViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,CvVideoCameraDelegate>
@@ -29,7 +31,10 @@ using namespace cv;
 @property (nonatomic, retain) IBOutlet UIButton* SaveStillButton;
 @property (nonatomic, retain) IBOutlet UIButton* FromCameraButton;
 @property (nonatomic, retain) NSMutableArray* mPointsArray;
-
+@property (nonatomic, assign) int counter;
+@property NSMutableArray *ArrayContainer;
+@property NSMutableArray *ArrayContainer2;
+@property IBOutlet UIView * curvedView2;
 
 - (IBAction)actionStart:(id)sender;
 

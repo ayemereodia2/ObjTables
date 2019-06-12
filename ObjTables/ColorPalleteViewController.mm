@@ -31,9 +31,7 @@
     self.samplecollection.dataSource = self;
     [self.samplecollection registerNib:[UINib nibWithNibName:@"PaintViewCell" bundle:nil] forCellWithReuseIdentifier:@"PaintViewCell"];
     
-    
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

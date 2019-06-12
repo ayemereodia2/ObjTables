@@ -19,7 +19,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/videoio/cap_ios.h>
 
-
 @interface ViewController ()
 
 @end
@@ -31,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     [self.navigationController setNavigationBarHidden:YES ];
     [self.sampletable registerNib:[UINib nibWithNibName:@"SimpleTableCell" bundle:nil] forCellReuseIdentifier:@"SimpleTableViewCell"];
