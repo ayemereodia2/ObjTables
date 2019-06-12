@@ -886,7 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9C9HBBN847;
+				DEVELOPMENT_TEAM = LB5YMG5W6W;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Users/mac/Desktop,
 					"$(PROJECT_DIR)/ObjTables",
@@ -912,7 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9C9HBBN847;
+				DEVELOPMENT_TEAM = LB5YMG5W6W;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Users/mac/Desktop,
 					"$(PROJECT_DIR)/ObjTables",
